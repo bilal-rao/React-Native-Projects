@@ -3,7 +3,7 @@ import { ScrollView } from 'react-native';
 import DatePicker from 'react-native-datepicker';
 import { Container, Header, Content, List, ListItem, Item, Input, Text, Spinner, Alert, Icon, View, SwipeRow, Button, Footer, FooterTab } from 'native-base';
 import { connect } from 'react-redux';
-import PatientsRecord from '../store/actions/patientAction';
+import PatientsRecord from '../actions/patientAction';
 
 
 function mapStateToProps(state) {

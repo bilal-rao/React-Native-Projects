@@ -1,10 +1,9 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+
 
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import store from './store';
+import Routes from './Routes';
 import {
   AppRegistry,
   StyleSheet,
@@ -15,39 +14,13 @@ import {
 export default class patient_tracker_stage1 extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+      <Provider store={store}>
+        <Routes />
+      </Provider>
     );
   }
 }
+console.disableYellowBox = true;//used for disable warnings in react-native
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
 AppRegistry.registerComponent('patient_tracker_stage1', () => patient_tracker_stage1);

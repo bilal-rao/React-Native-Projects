@@ -1,4 +1,4 @@
-import PatientsRecord from '../actions/patientAction';
+import PatientsRecord from '../../actions/patientAction';
 
 const INITIAL_STATE = {
     // addPatient : 0

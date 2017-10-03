@@ -1,7 +1,7 @@
 import React from 'react';
 import { AsyncStorage, Text, View, TextInput, Button } from 'react-native';
 import { connect } from 'react-redux';
-import PatientsRecord from '../store/actions/patientAction';
+import PatientsRecord from '../actions/patientAction';
 
 
         function mapDispatchToProps(dispatch) {
@@ -31,6 +31,8 @@ class AddPatient extends React.Component {
             drName : this.state.drName
         }
         this.props.patientDispatch(PatientDetails);
+        const { navigate } = this.props.navigation;
+        navigate('Home');
     }
     static navigationOptions = ({ navigation }) => ({
         title: 'Patient Details'
