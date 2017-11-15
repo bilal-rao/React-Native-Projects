@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
-// import LogOut from './logout/logOut.js';
 import MapViews from './mapView/mapView.js';
 import { TabNavigator } from 'react-navigation';
 import { Drawer, Icon, Container, Header, Left, Body, Right, Title, Button, Content } from 'native-base';
