@@ -1,0 +1,1 @@
+app crash when press want to rrack deeds button..

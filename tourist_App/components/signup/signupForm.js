@@ -5,14 +5,14 @@ export default class SignUpForm extends React.Component{
 
     signUp(){
         var signupObj = {
-            fName : this.state.fName,
-            sName : this.state.sName,
+            uName : this.state.uName,
+            uAddress : this.state.uAddress,
             email : this.state.email,
             password : this.state.pass
         }
         this.props.callBackFromParent(signupObj);
-        this.state.fName = '',
-        this.state.sName = '',
+        this.state.uName = '',
+        this.state.uAddress = '',
         this.state.email = '',
         this.state.password = ''
     }
@@ -21,11 +21,11 @@ export default class SignUpForm extends React.Component{
             <View style={styles.container}>              
                 <TextInput style={styles.input}
                     placeholder="First Name"
-                    onChangeText={(fName)=>{this.setState({fName})}}
+                    onChangeText={(uName)=>{this.setState({uName})}}
                 />
                 <TextInput style={styles.input}
-                    placeholder="Surname"  
-                    onChangeText={(sName)=>{this.setState({sName})}}                  
+                    placeholder="Address"  
+                    onChangeText={(uAddress)=>{this.setState({uAddress})}}                  
                 />
                 <TextInput style={styles.input}
                      placeholder="Mobile Number or email Address"   

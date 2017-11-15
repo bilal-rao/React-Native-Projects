@@ -1,0 +1,41 @@
+{
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "Attach to packager",
+                "program": "${workspaceRoot}/.vscode/launchReactNative.js",
+                "type": "reactnative",
+                "request": "attach",
+                "sourceMaps": true,
+                "outDir": "${workspaceRoot}/.vscode/.react"
+            },
+            {
+                "type": "extensionHost",
+                "request": "launch",
+                "name": "Launch Extension",
+                "runtimeExecutable": "${execPath}",
+                "args": [
+                    "--extensionDevelopmentPath=${workspaceRoot}"
+                ],
+                "outFiles": [
+                    "${workspaceRoot}/out/**/*.js"
+                ],
+                "preLaunchTask": "npm"
+            },
+            {
+                "name": "Debug Android",
+                "program": "${workspaceRoot}/.vscode/launchReactNative.js",
+                "type": "reactnative",
+                "request": "launch",
+                "platform": "android",
+                "sourceMaps": true,
+                "outDir": "${workspaceRoot}/.vscode/.react"
+            },
+            {
+                "type": "node",
+                "request": "launch",
+                "name": "Launch Program",
+                "program": "${file}"
+            }
+        ]
+    }

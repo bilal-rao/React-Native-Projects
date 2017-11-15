@@ -1,17 +1,19 @@
 import MAPACTIONS from '../actions/mapActions';
 
-
 const INITIAL_STATE = {
-    data : []
+    initialPoint: null,
+    destinationPoint: null,
 }
 
-function mapReducer(state=INITIAL_STATE,action){
+function mapReducer(state = INITIAL_STATE, action) {
     console.log('map Reducer success')
-    switch(action.type){
+    switch (action.type) {
         case MAPACTIONS.GETLOCATION:
-        return {...state,data:action.payload};
+            return { ...state, initialPoint: action.payload };
+        case MAPACTIONS.SETLOCATION:
+            return { ...state, destinationPoint: action.payload };
         default:
-        return state;
+            return state;
     }
 }
 export default mapReducer;

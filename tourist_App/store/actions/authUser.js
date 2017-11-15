@@ -15,8 +15,13 @@ export default class AUTHUSER {
                     {
                         type: AUTHUSER.SIGNUP,
                         payload: data
-                    }
-                ))
+                    },
+                    firebase.database().ref("user" + "/" + firebase.auth().currentUser.uid).set({
+                        uName: userObj.uName,
+                        uAddress: userObj.uAddress,
+                        email: userObj.email
+                    }))
+                )
                 .catch(function (error) {
                     // Handle Errors here.
                     var errorMessage = error.message;

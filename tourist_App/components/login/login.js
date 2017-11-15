@@ -3,6 +3,9 @@ import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import LoginForm from './loginForm';
 import AUTHUSER from '../../store/actions/authUser';
 import {connect} from 'react-redux';
+import * as firebase from 'firebase';
+import { NavigationActions } from 'react-navigation';
+
 
 
 function mapDispatchToProps(dispatch){
@@ -12,6 +15,17 @@ function mapDispatchToProps(dispatch){
 }
 
 class LoginIn extends React.Component {
+    componentWillMount(){
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                NavigationActions.navigate({ routeName: 'home' })
+              // User is signed in.
+            } else {
+                alert('Sigin Plz!')
+              // No user is signed in.
+            }
+          });
+    }
     navagateToSignUp() {
         const { navigate } = this.props.navigation;
         navigate('signup');

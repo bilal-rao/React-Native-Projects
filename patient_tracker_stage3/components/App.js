@@ -43,6 +43,7 @@ class App extends React.Component {
         this.setState({ date: '' })
     }
     render() {
+        console.log(this.props.patient)
         const navigate = this.props.navigation.navigate;
         return (
             <Container>
