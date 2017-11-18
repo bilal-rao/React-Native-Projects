@@ -4,18 +4,21 @@ import { NavigationActions } from 'react-navigation';
 import { StackNavigator } from 'react-navigation';
 import AUTHUSER from '../../store/actions/authUser';
 import { connect } from 'react-redux';
-import { Image , StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 
 const styles = StyleSheet.create({
     header: {
-        backgroundColor: '#f4f3ec'
+        backgroundColor: '#234567'
     },
     drawerImage: {
         width: 295,
         height: 160
     },
     drawerContent: {
-        backgroundColor: '#f4f3ec'
+        backgroundColor: '#ffffff'
+    },
+    textStyle: {
+        
     }
 })
 
@@ -27,7 +30,7 @@ class SideBar extends React.Component {
     render() {
         return (
             <Container>
-                <Header style={styles.header}/>
+                <Header style={styles.header} />
                 <Content style={styles.drawerContent}>
                     <View last>
                         <Image
@@ -36,7 +39,7 @@ class SideBar extends React.Component {
                         />
                     </View>
                     <ListItem last onPress={() => this.props.navigation.navigate('home')}>
-                        <Text>Home</Text>
+                        <Text style={styles.textStyle}>Home</Text>
                     </ListItem>
 
                     <ListItem last onPress={() => this.props.navigation.navigate('groups')}>

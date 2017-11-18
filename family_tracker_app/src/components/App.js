@@ -1,9 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, Dimensions } from 'react-native';
 import MapViews from './mapView/mapView.js';
 import { TabNavigator } from 'react-navigation';
 import { Drawer, Icon, Container, Header, Left, Body, Right, Title, Button, Content } from 'native-base';
 import SideBar from './sideBar/sideBar';
+
+var {height,width} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
     container: {
@@ -14,7 +16,10 @@ const styles = StyleSheet.create({
         bottom: 0,
         justifyContent: 'flex-end',
         alignItems: 'center',
-    }
+    },
+    headerStyle: {
+        backgroundColor: '#234567'
+    },
 })
 
 
@@ -32,7 +37,7 @@ export default class App extends React.Component {
                 content={<SideBar navigation={this.props.navigation} navigator={this.navigator} />}
                 onClose={() => this.closeDrawer()} >
                 <Container>
-                    <Header>
+                    <Header style={styles.headerStyle}>
                         <Left>
                             <Button transparent onPress={this.openDrawer.bind(this)}>
                                 <Icon name='menu' />
@@ -41,12 +46,13 @@ export default class App extends React.Component {
                         <Body>
                             <Title>Family tracker App</Title>
                         </Body>
-                        <Right>
-                            <Button transparent onPress={()=>this.props.navigation.navigate('joinCircle')} />
-                        </Right>
+                        {/* <Right>
+                            <Button transparent onPress={() => this.props.navigation.navigate('joinCircle')} />
+                        </Right> */}
+                        
                     </Header>
                     <Content>
-                        <MapViews data={this.props}/>
+                        <MapViews data={this.props} />
                     </Content>
                 </Container>
             </Drawer>

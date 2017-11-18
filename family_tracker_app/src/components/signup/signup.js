@@ -15,22 +15,34 @@ class SignUp extends React.Component {
     dataFromSignUpForm = (dataFromChild) => {
         this.props.signUpDispatch(dataFromChild);
     }
+    constructor(props){
+        super(props);
+        this.state = {
+            baseText: 'Family GPS Tracker'
+        }
+    }
     render() {
         return (
             <View style={styles.container}>
                 {/* <View style={styles.titleContainer}>
                     <Text>Join us Now!</Text>
                 </View> */}
-                <View style={styles.logoContainer}>
-                    <Image
+                <View style={styles.signupText}>
+                    <Text style={{
+                        fontSize: 25,
+                        color: 'white',
+                    }}>
+                       {this.state.baseText}
+                    </Text>
+                    {/* <Image
                         style={styles.logo}
                         source={require('../../images/signup.png')}
-                    />
+                    /> */}
                 </View>
                 <View style={styles.formContainer}>
                     <SignUpForm callBackFromParent={this.dataFromSignUpForm} />
                 </View>
-                <View style={{marginLeft: width/2.6}}>
+                <View style={{ marginLeft: width / 2.6 }}>
                     <View style={{ flexDirection: 'row' }}>
                         <Text>Already have an Account?</Text>
                         <TouchableOpacity >
@@ -47,16 +59,16 @@ class SignUp extends React.Component {
 const styles = {
     container: {
         flex: 1,
-        backgroundColor: '#3498db'
+        backgroundColor: '#234567'
     },
     // titleContainer : {
     //     flexGrow : 0.2,
     //     backgroundColor : 'red'
     // },
-    logoContainer: {
+    signupText: {
         alignItems: 'center',
         flexGrow: 0.5,
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
 }
 

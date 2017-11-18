@@ -7,7 +7,7 @@ import * as firebase from 'firebase';
 import { NavigationActions } from 'react-navigation';
 import { Spinner, Content } from 'native-base';
 
-var {height,width} = Dimensions.get('window');
+var { height, width } = Dimensions.get('window');
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -19,7 +19,8 @@ class LoginIn extends React.Component {
     constructor() {
         super();
         this.state = {
-            loading: true
+            loading: true,
+            baseText: 'Family GPS Tracker'
         }
     }
     componentWillMount() {
@@ -44,24 +45,30 @@ class LoginIn extends React.Component {
         return (
             <View style={styles.container}>
                 {this.state.loading ?
-                    <View style={{marginTop: height/3}}>
+                    <View style={{ marginTop: height / 3 }}>
                         <Spinner color='red' />
                     </View>
                     :
                     <View style={styles.container}>
-                        <View style={styles.logoContainer}>
-                            <Image
+                        <View style={styles.siginText}>
+                            <Text style={{
+                                fontSize: 25,
+                                color: 'white',
+                            }}>
+                                {this.state.baseText}
+                            </Text>
+                            {/* <Image
                                 style={styles.logo}
                                 source={require('../../images/logo.png')}
-                            />
+                            /> */}
                         </View>
                         <View style={styles.formContainer}>
                             <LoginForm callBackFromParent={this.dataFromLoginForm} />
                         </View>
-                        <View style={{marginLeft: width/1.6}}>
-                        <TouchableOpacity>
-                            <Text onPress={this.navagateToSignUp.bind(this)}>Create an Account</Text>
-                        </TouchableOpacity>
+                        <View style={{ marginLeft: width / 1.6 }}>
+                            <TouchableOpacity>
+                                <Text onPress={this.navagateToSignUp.bind(this)}>Create an Account</Text>
+                            </TouchableOpacity>
                         </View>
                     </View>
                 }
@@ -73,9 +80,9 @@ class LoginIn extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#3498db'
+        backgroundColor: '#234567'
     },
-    logoContainer: {
+    siginText: {
         alignItems: 'center',
         flexGrow: 0.5,
         justifyContent: 'center'
